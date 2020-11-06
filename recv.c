@@ -37,7 +37,7 @@ int main(int argc , char *argv[])
 	}
 
 	//Send some data
-	message = "connect";
+	message = "connected between client and server";
 	if( send(socket_desc, message, strlen(message), 0) < 0)
 	{
 		puts("Send failed\n");
@@ -51,7 +51,8 @@ int main(int argc , char *argv[])
 
 	//Receive a reply from the server
 	//receive for sock_stream = recv(sock, &buf, len, flags)
-	if(recv(socket_desc, server_reply, 2000, 0) < 0)
+
+	if(read(socket_desc, server_reply, 2000, 0) < 0)
 	{
 		puts("recv failed");
 	}
